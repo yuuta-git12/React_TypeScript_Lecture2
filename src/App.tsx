@@ -2,14 +2,9 @@ import { useState } from 'react'
 import './App.css'
 import axios from 'axios'
 import { Todo } from './Todo';
+import { TodoType } from './types/todo'; 
+import { Text } from './Text';
 
-// jsonplaceholderから取ってくるデータの型定義
-type TodoType = {
-    "userId": number;
-    "id": number;
-    "title": string;
-    "completed": boolean;
-};
 
 export default function App() {
   // 画面にデータを表示するためのStateの宣言(型定義はTodoTypeを定義)
@@ -24,6 +19,7 @@ export default function App() {
   
   return (
     <div className="App">
+      <Text color="red" fontSize='18px'/>
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
         <Todo
